@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube</title>
+    <link rel="stylesheet" href="./cube.css">
+</head>
+<body>
+    <div class="scene">
+        <div class="cube">
+            <div class="cube__face cube__face--front">Front</div>
+            <div class="cube__face cube__face--back">Back</div>
+            <div class="cube__face cube__face--left">Left</div>
+            <div class="cube__face cube__face--right">Right</div>
+            <div class="cube__face cube__face--top">Top</div>
+            <div class="cube__face cube__face--bottom">Bottom</div>
+        </div>
+    </div>
+    <div class="radio__btn">
+        <input type="radio" name="rotate" value="front" checked>Front
+        <input type="radio" name="rotate" value="back">Back
+        <input type="radio" name="rotate" value="left">Left
+        <input type="radio" name="rotate" value="right">Right
+        <input type="radio" name="rotate" value="top">Top
+        <input type="radio" name="rotate" value="bottom">Bottom
+    </div>
+    <script>
+       const cube=document.querySelector('.cube');
+       const radiobtn=document.querySelector('.radio__btn');
+       let currentClass='';
+       radiobtn.addEventListener('change',()=>{
+        const checkedRadio=document.querySelector(':checked');
+        const showClass='show-'+ checkedRadio.value;
+        if(currentClass){
+            cube.classList.remove(currentClass)
+        }
+        cube.classList.add(showClass);
+        currentClass=showClass;
+       });
+    </script>
+</body>
+</html>
